@@ -5,8 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expense tracker</title>
   <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  
+  <h2 class="title">Expense Tracker</h2>
+  <div class="balance">
+    <h3 class="balance-title">your balance</h3>
+    <span class="balance-value"></span>
+  </div>
+  <div class="income-expense-card">
+    <div class="income-card">
+      <p class="income-title">Income</p>
+      <h3 class="income-value"></h3>
+    </div>
+    <div class="expense-card">
+      <p class="expense-title">Expenses</p>
+      <h3 class="expense-value"></h3>
+    </div>
+  </div>
+  <div class="transaction-history">
+    <h3 class="history-title">history</h3>
+    <hr class="history-line">
+    <ul class="transaction-container">
+      <li class="transaction-list-item">
+        <span class="list-item">car</span>
+        <span class="list-item-price">$789</span>
+      </li><div class="close-box"><button class="close-btn"><i class="fa-solid fa-xmark"></i></button></div>
+    </ul>
+  </div>
+  <div class="new-transaction">
+    <h3 class="new-transaction-title">
+      Add new transaction
+    </h3>
+    <hr class="new-transaction-line">
+    <div class="items-to-add">
+      <div class="description-box">
+        <label for="inp-description" class="description">Description</label>
+        <input type="text" placeholder="Enter description..." id="inp-description"
+      class="inp-description">
+      </div>
+      <div class="amt-box">
+        <label for="inp-amt" class="inp-amount">Amount</label>
+        <small>(-100 = expense, 100 = income)</small>
+        <input type="number" placeholder="Enter amount..." id="inp-amt"
+        class="inp-amt">
+      </div>
+      <div class="btn-add-box">
+        <button class="btn-add" id="btn-add">Add transaction</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
