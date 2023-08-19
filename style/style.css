@@ -151,6 +151,7 @@ ul li{
 }
 
 .transaction-list-item{
+  height: 2.5rem;
   border-left: 5px solid;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -180,6 +181,19 @@ ul li{
 .close-box{
   width: 2.25rem;
   display: none;
+  border: 1px solid var(--var-clr-red);
+}
+
+.close-box button{
+  color: white;
+  background-color: var(--var-clr-red);
+  width: 2.25rem;
+  height: 2.5rem;
+  border: 1px solid var(--var-clr-red);
+}
+
+.close-btn i{
+  font-size: 1.3rem;
 }
 
 /* hover effect */
@@ -190,17 +204,6 @@ ul li{
   display: block;
 }
 
-.close-box button{
-  color: white;
-  background-color: var(--var-clr-red);
-  width: 2.25rem;
-  height: 2.5rem;
-  border-color: var(--var-clr-red);
-}
-
-.close-btn i{
-  font-size: 1.3rem;
-}
 
 /* new-transaction starts here!!! */
 .new-transaction-title{
