@@ -3,6 +3,15 @@
 :root{
   --var-clr-green:#2ECC71;
   --var-clr-red:#C0392B;
+  --var-clr-bg:#e5e6ed;
+  --var-clr-input-border: rgb(182, 182, 182);
+  --var-clr-font:#393A57;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html{
@@ -10,5 +19,235 @@ html{
 }
 
 body{
+  background-color: var(--var-clr-bg);
   font-family: 'Roboto', sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+ul li{
+  list-style: none;
+}
+
+.main-container{
+  color: var(--var-clr-font);
+  width: 28rem;
+  padding: 0rem 3rem;
+  margin: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.title{
+  align-self: center;
+}
+
+/* balance image and its box */
+.balance-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+
+}
+
+.calculator-img-box{
+  width: 4rem;
+}
+
+.calculator-img-box img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.balance-title{
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+
+.balance-value{
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.balance-box{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* income and expense card */
+.income-expense-card{
+  background-color: white;
+  width: 100%;
+  height: 6rem;
+  padding: 1rem;
+  border-radius: 7px;
+  box-shadow: 0px 0px 2px #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.vertical-line{
+  width: 1px;
+  height: 100%;
+  background-color: #bcc0cb;
+}
+
+.income-card,.expense-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.income-title,.expense-title{
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  font-size: 0.95rem;
+}
+
+.income-value,.expense-value{
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.income-value{
+  color: var(--var-clr-green);
+}
+
+.expense-value{
+  color: var(--var-clr-red);
+}
+
+/* history section starts here!!! */
+.history-title{
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--var-clr-font);
+}
+
+.transaction-container{
+  width: 100%;
+  padding: 0.75rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.transaction-list-item{
+  border-left: 5px solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: flex;
+}
+
+.content-list-item{
+  background-color: white;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0rem 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-income{
+  border-color: var(--var-clr-green);
+}
+
+.transaction-expense{
+  border-color: var(--var-clr-red);
+}
+
+/* close-box btn */
+.close-box{
+  width: 2.25rem;
+  display: none;
+}
+
+/* hover effect */
+.transaction-list-item:hover{
+  width: 110.2%;
+}
+.transaction-list-item:hover .close-box{
+  display: block;
+}
+
+.close-box button{
+  color: white;
+  background-color: var(--var-clr-red);
+  width: 2.25rem;
+  height: 2.5rem;
+  border-color: var(--var-clr-red);
+}
+
+.close-btn i{
+  font-size: 1.3rem;
+}
+
+/* new-transaction starts here!!! */
+.new-transaction-title{
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--var-clr-font);
+}
+
+.new-transaction{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.items-to-add{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.transaction-type-container,.description-box,.amt-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transaction-type-container label{
+  font-size: 1rem;
+}
+
+.transaction-type,.inp-description,.inp-amt{
+  color: var(--var-clr-font);
+  background-color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--var-clr-input-border);
+  border-radius: 5px;
+}
+
+.btn-add{
+  font-size: 1rem;
+  color: #fff;
+  background-color: blue;
+  width: 100%;
+  padding: 0.5rem 0rem;
+  border: 1px solid var(--var-clr-input-border);
+  border-radius: 5px;
 }
