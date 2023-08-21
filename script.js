@@ -11,6 +11,9 @@ const incomeValueEle = document.querySelector('.income-value');
 const expenseValueEle = document.querySelector('.expense-value');
 // unordered list container
 const listContainerEle = document.querySelector('.transaction-container');
+// alert msg
+const alertMsgEle = document.querySelector('.alert-msg');
+const alertContainerEle = document.querySelector('.alert');
 
 // gv
 let data = localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")) : [];
@@ -99,11 +102,35 @@ const calculateBalance = ()=>{
 const deleteItem = (id)=>{
   data = data.filter((obj)=> obj.id !== id);
   addDataToDOM();
+  alertWarningMsg();
+  setTimeout(()=>{
+    alertContainerEle.style.display = "none";
+  },3000)
+}
+
+// alert success msg
+const alertSuccessMsg = ()=>{
+  alertMsgEle.innerText = `Transaction Added`;
+  alertContainerEle.style.display = "block";
+  alertContainerEle.classList.contains('warning') ? alertContainerEle.classList.remove('warning') : '';
+  alertContainerEle.classList.add('success');
+}
+
+// alert warning msg
+const alertWarningMsg = ()=>{
+  alertMsgEle.innerText = `Transaction Removed`;
+  alertContainerEle.style.display = "block";
+  alertContainerEle.classList.contains('success') ? alertContainerEle.classList.remove('success') : '';
+  alertContainerEle.classList.add('warning');
 }
 
 // event listeners
 addBtnEle.addEventListener('click',()=>{
   addingData();
+  alertSuccessMsg();
+  setTimeout(()=>{
+    alertContainerEle.style.display = "none";
+  },3000)
   emptyInputFields();
 })
 

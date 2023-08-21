@@ -255,3 +255,21 @@ ul li{
   border: 1px solid var(--var-clr-input-border);
   border-radius: 5px;
 }
+
+/* alert */
+.alert{
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-weight: 700;
+  display: none;
+}
+
+.success{
+  background-color: var(--var-clr-green);
+  color: white;
+}
+
+.warning{
+  background-color: var(--var-clr-red);
+  color: white;
+}
