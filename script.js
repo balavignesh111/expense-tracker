@@ -13,13 +13,15 @@ const expenseValueEle = document.querySelector('.expense-value');
 const listContainerEle = document.querySelector('.transaction-container');
 
 // gv
-let data = [];
+let data = localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data")) : [];
+
 // functions
 function init(){
   listContainerEle.innerHTML = null;
   incomeValueEle.innerText = `₹0`;
   expenseValueEle.innerText = `₹0`;
   balanceValueEle.innerText = `₹0`;
+  addDataToDOM();
 }
 
 // creating list and updating database
@@ -31,7 +33,6 @@ const addingData = ()=>{
     obj["description"] = itemDescriptionEle.value;
     obj["amount"] = Number(amountValueEle.value);
     data.push(obj);
-    console.log(data)
     addDataToDOM();
   }
 }
@@ -40,6 +41,11 @@ const addingData = ()=>{
 const addDataToDOM = ()=>{
   if(data.length > 0){
     listContainerEle.innerHTML = null;
+    // while passing data to local storage of a browser it will be in string format regarless of data type. 
+
+    // then sending array we need to send it in string format so that it holds the structure of data.
+
+    localStorage.setItem("data",JSON.stringify(data));
     data.forEach((item)=>{
       const listItem = document.createElement('li');
       // based on the transaction type class is added
@@ -60,9 +66,12 @@ const addDataToDOM = ()=>{
       listContainerEle.appendChild(listItem);
     })
     calculateBalance();
-  }else{
+  }else if(data.length == 0){
     listContainerEle.innerHTML = null;
-    init();
+    incomeValueEle.innerText = `₹0`;
+    expenseValueEle.innerText = `₹0`;
+    balanceValueEle.innerText = `₹0`;
+    localStorage.clear();
   }
 }
 
